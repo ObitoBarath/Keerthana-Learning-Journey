@@ -1,6 +1,6 @@
+/*
 package keerthana;
 
-import tries.Palazzo;
 
 import java.util.*;
 
@@ -16,10 +16,12 @@ class A{
 }
 class B  extends A{
 
-    /* @Override
+    */
+/* @Override
     public final void calculator(){
             System.out.println("Calculator");
-    } */
+    } *//*
+
 
 
     public static void main(String[] args) {
@@ -174,3 +176,4 @@ public class ObjectInitializer {
 
 
 }
+*/
