@@ -2,6 +2,86 @@ package keerthana.programs;
 
 public class Programs {
 
+
+
+
+    public static  Integer helo(){
+        String input = "asdfasdfasdf";
+
+
+        try
+        {
+            char[] charArray = input.toCharArray();
+            for (int i = 0; i < charArray.length; i++) {
+
+                if (charArray[i] == 'f'){
+                    return 10000;
+                }
+
+            }
+            return 10;
+        }catch (Exception e){
+            System.out.println("e = " + e);
+        }finally {
+            System.out.println("Finally");
+            return 99999;
+        }
+
+    }
+
+
+    public static void main(String[] args) {
+        System.out.println("output " + helo());
+    }
+
+    public static void decryptString(){
+        String name ="a3b2c4d5";
+
+        char[] value = name.toCharArray();
+
+        String output ="";
+
+        int count = 0;
+
+        for(int i=0; i<value.length; i=i+2){
+
+            char ch = value[i];
+
+            count = Character.getNumericValue(value[i+1]);
+
+            //System.out.println(count);
+
+            for (int j=0; j<count ; j++){
+                output = output + ch;
+                //System.out.println(output);
+            }
+
+        }
+
+        System.out.println(output);
+
+    }
+    public static void reverseString(){
+        String name="Hello I am Palazzo";
+        String redex = " ";
+        String output="";
+        String end="";
+        String[] value = name.split(redex);
+        //System.out.println(String(value));
+        for (int i=0;i<value.length; i++){
+            output=value[i];
+            System.out.println(output);
+            for ( int j= output.length()-1; j>=0; j--){
+                end+=output.charAt(j);
+            }
+        }
+        end+=" ";
+        System.out.println(end);
+
+    }
+
+
+
     public void encryptString(){
         String input = "aaacccd";
         String result = "";
