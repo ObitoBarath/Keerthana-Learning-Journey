@@ -100,6 +100,24 @@ public class Programs {
         System.out.println("result = " + result);
 
     }
+    public void isPalindrome(){
+        String name = "madam";
+        int s = name.length();
+        String rev ="";
+        //char[] value = name.toCharArray();
+        for(int i=s-1; i>=0; i--){
+            rev = rev + name.charAt(i);
+//          System.out.println(rev+"letter");
+        }
+        if(name.equals(rev)){
+//            System.out.println(name + " "+rev);
+            System.out.println("palindrome");
+        }
+        else{
+            System.out.println(name + " "+rev);
+            System.out.println("not a palindrome");}
+    }
 
 
 }
+
