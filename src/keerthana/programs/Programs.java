@@ -71,8 +71,10 @@ public class Programs {
         for (int i=0;i<value.length; i++){
             output=value[i];
             System.out.println(output);
-            for ( int j= output.length()-1; j>=0; j--){
-                end+=output.charAt(j);
+            if(i%2!=0){
+            for ( int j= output.length()-1; j>=0; j--) {
+                end += output.charAt(j);
+            }
             }
         }
         end+=" ";
