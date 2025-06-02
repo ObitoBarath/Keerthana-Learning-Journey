@@ -60,6 +60,7 @@ public class HospitalManagement {
 //        Scanner sc = new Scanner(System.in);
         System.out.println("Enter patient name: ");
         String nam = sc.nextLine();
+        System.out.println("nam = " + nam);
         for (Doctor docRoles :doctors){
             String roles = docRoles.getRole();
             System.out.println("Available doctors :" +roles);
@@ -85,16 +86,15 @@ public class HospitalManagement {
             System.out.println("3) get patient list: ");
             System.out.println("4) exit: ");
             System.out.println("Enter a number: ");
-            int number = sc.nextInt();
+            int number = sc.nextInt(); // only consume input
 
             switch(number) {
-                case 1 -> {
+                case 1 : {
+                    sc.nextLine(); //  updating the scanner that needs to consume new input
                     manager.patientDataFromUser(sc);
                 }
-                case 4 -> {
-                    return;
-                }
-                default -> {
+                default:{
+                    sc.close();
                     return;
                 }
             }
