@@ -4,15 +4,26 @@ public class Patient {
     private String name;
     private String role;
     private String disease;
+    private int age;
 
     public Patient(String name, String role, String disease) {
         this.name = name;
         this.role = role;
         this.disease = disease;
+
+    }
+    public Patient(String name, String role, String disease, int age){
+        this.name = name;
+        this.role = role;
+        this.disease = disease;
+        this.age = age;
     }
 
     public String getName() {
         return name;
+    }
+    public Integer getAge(){
+        return age;
     }
 
     public void setName(String name) {
