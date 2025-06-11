@@ -4,10 +4,7 @@ import management.Hospital.Doctor;
 import management.Hospital.Patient;
 import org.w3c.dom.stylesheets.LinkStyle;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class SetOperations {
     public void listToSetConversion(){
@@ -17,7 +14,7 @@ public class SetOperations {
         values.add(2);
         values.add(9);
         values.add(5);
-        Set<Integer> setValues = new HashSet<>();
+        Set<Integer> setValues = new LinkedHashSet<>();
         for(int i=0; i<values.size(); i++) {
             Integer listValues = values.get(i);
             setValues.add(listValues);
@@ -46,7 +43,7 @@ public class SetOperations {
 
     public static void main(String[] args) {
         SetOperations object1 = new SetOperations();
-//        object1.listToSetConversion();
+        object1.listToSetConversion();
 //        object1.setOperationsWithPatient();
          object1.stringSetOperations();
     }

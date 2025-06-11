@@ -1,9 +1,23 @@
 package keerthana.programs;
 
 import java.util.HashMap;
+import java.util.Hashtable;
 import java.util.Map;
+import java.util.TreeMap;
 
 public class MapOperations {
+    public void initMap(){
+        Map<Integer, String> newMap = new TreeMap<>();
+        newMap.put(1, "keerthana");
+        newMap.put(1, "keerthana");
+        newMap.put(2, "Barath");
+        System.out.println(newMap);
+    }
+    public void initHashTable(){
+        Map<Integer, String> hashTableValues = new HashMap<>();
+        hashTableValues.put(null, null);
+        hashTableValues.put(null, null);
+        System.out.println(hashTableValues);
 
    static public void mapStuffs(){
         Map<String, String> map  = new HashMap<>();
@@ -33,8 +47,9 @@ public class MapOperations {
         String s1 = map.get(secondKey);
         System.out.println("s1 = " + s1);
     }
-
     public static void main(String[] args) {
-            mapStuffs();
+        MapOperations object1 = new MapOperations();
+        object1.initMap();
+    object1.initHashTable();
     }
 }
