@@ -82,7 +82,7 @@ public class CollectionHandler {
 
          patients.add(new Patient("abi", "aa","q", 21));
          patients.add(new Patient("miri", "bb","r", 23));
-         patients.add(new Patient("togo", "cc","s", 20));
+         patients.add(new Patient("togo", "cc","s", 40  ));
          Patient patientByAge = object1.getPatientsAge(patients);
 
     }
@@ -124,4 +124,5 @@ public class CollectionHandler {
 
          return maximum;
     }
+
 }

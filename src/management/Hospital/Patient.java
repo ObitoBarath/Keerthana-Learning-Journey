@@ -1,5 +1,7 @@
 package management.Hospital;
 
+import java.util.Objects;
+
 public class Patient {
     private String name;
     private String role;
@@ -46,6 +48,17 @@ public class Patient {
         this.disease = disease;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Patient patient = (Patient) o;
+        return age == patient.age && Objects.equals(name, patient.name) && Objects.equals(role, patient.role) && Objects.equals(disease, patient.disease);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, role, disease, age);
+    }
 
     @Override
     public String toString() {
