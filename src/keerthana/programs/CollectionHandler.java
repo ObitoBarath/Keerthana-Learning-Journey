@@ -5,7 +5,7 @@ import management.Hospital.Patient;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.stream.Gatherer;
+
 
 public class CollectionHandler {
     public static void main(String[] args) {

@@ -4,6 +4,51 @@ import java.util.*;
 public class StudentMainClass {
     List<Student> students = new ArrayList<>();
     Map <String, Integer> mapValues = new LinkedHashMap<>();
+
+
+
+
+
+
+
+    public void addStudentAndFindMaximumMarks()
+    {
+        Map<String , Student> studentMap = new HashMap<>();
+
+        Student student1 = new Student("keerthana", 7);
+        Student student2 = new Student("AAA", 1);
+        Student student3 = new Student("BBB", 5);
+
+        studentMap.put(student1.getName() , student1);
+        studentMap.put(student2.getName() , student2);
+        studentMap.put(student3.getName() , student3);
+
+        Integer maximumMarks = 0;
+        Student maximumMarkStudent = null;
+
+
+        for (Map.Entry<String ,Student> entry : studentMap.entrySet()){
+
+            String key = entry.getKey();
+
+            Student value = entry.getValue();
+
+            if(value.getMarks() > maximumMarks){
+                maximumMarks = value.getMarks();
+                maximumMarkStudent = value;
+
+            }
+
+        }
+
+
+        System.out.println("maximumMarks = " + maximumMarks);
+        System.out.println("maximumMarkStudent = " + maximumMarkStudent);
+
+
+
+    }
+
     public void studentData() {
         students.add(new Student("keerthana", 7));
         students.add(new Student("AAA", 1));
@@ -49,7 +94,8 @@ String maxScorer =" ";
     }
     public static void main(String args[]){
         StudentMainClass object1 = new StudentMainClass();
-        object1.studentData();
+//        object1.studentData();
+        object1.addStudentAndFindMaximumMarks();
     }
 
 }

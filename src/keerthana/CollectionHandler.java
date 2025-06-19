@@ -112,7 +112,7 @@ public class CollectionHandler {
 
         System.out.println("stack = " + stack);
         String peek = stack.peek();
-        stack.addFirst("asdfsdfds");
+//        stack.addFirst("asdfsdfds");
         System.out.println("peek = " + peek);
 
 
