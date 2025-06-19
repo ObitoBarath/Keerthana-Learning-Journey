@@ -90,17 +90,25 @@ public class StudentMainClass {
     public void listAndMapOperations(){
         List<String> listData = new ArrayList<>();
         listData.add("apple");
+        listData.add("dog");
         listData.add("bat");
         listData.add("cat");
         listData.add("elephant");
         listData.add("dog");
-        Map<Integer, List<String>> mapData =new TreeMap<>();
+        Map<Integer, Set<String>> mapData =new TreeMap<>();
         for(String names:listData){
             Integer lengthOfNames = names.length();
-            List<String> lengthList = new ArrayList<>();
-            lengthList.add(names);
-            mapData.put(lengthOfNames,lengthList);
+            if(mapData.containsKey(lengthOfNames)){
+                Set<String> sameLengthKey = mapData.get(lengthOfNames);
+                sameLengthKey.add(names);
+            }
+            else {
+                Set<String> lengthList = new TreeSet<>();
+                lengthList.add(names);
+                mapData.put(lengthOfNames, lengthList);
+            }
         }
+        System.out.println(mapData);
     }
 
     public void studentData() {
@@ -152,6 +160,8 @@ String maxScorer =" ";
 //        object1.addStudentAndFindMaximumMarks();
         object1.constructSizeToStringListMap();
 
+//        object1.addStudentAndFindMaximumMarks();
+        object1.listAndMapOperations();
     }
 
 }

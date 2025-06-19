@@ -34,18 +34,22 @@ public class MapOperations {
         Integer getValue = map2.get(-1);
         System.out.println(getValue);
         Set<Integer> setvalue=map2.keySet();
+        // keyset is for to take only the key values, which returns data in set
         Collection<Integer> setvalues = map2.values();
+        //values is for get the values from the map, which returns data in collection
         Set<Map.Entry<Integer, Integer>> entries = map2.entrySet();
-        for(Map.Entry<Integer, Integer> i: entries){
-          Integer key = i.getKey();
-          Integer value = i.getValue();
-            System.out.println(key + " "+ value);
-            map2.put(8,7);
-        }map2.containsKey(-1);
-        map2.containsKey(2);
-        map2.clear();
-        map2.isEmpty();
-//        map2.remove();
+        // entry set is to take all keys and values, which returns data in set
+        System.out.println(entries);
+//        for(Map.Entry<Integer, Integer> i: entries){
+//          Integer key = i.getKey();
+//          Integer value = i.getValue();
+//            System.out.println(key + " "+ value);
+//            map2.put(8,7);
+//        }map2.containsKey(-1);
+//        map2.containsKey(2);
+//        map2.clear();
+//        map2.isEmpty();
+////        map2.remove();
     }
 
     static public void mapStuffs() {
@@ -116,8 +120,8 @@ public class MapOperations {
         MapOperations object1 = new MapOperations();
 //        object1.initMap();
 //        object1.initHashTable();
-//        object1.mapClasses();
-        object1.listMapOperations();
+        object1.mapClasses();
+//        object1.listMapOperations();
     }
 }
 
