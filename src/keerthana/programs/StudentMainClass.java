@@ -48,6 +48,25 @@ public class StudentMainClass {
 
 
     }
+    /*
+    * 1.getting each index value from the list
+    * 2. */
+
+    public void listAndMapOperations(){
+        List<String> listData = new ArrayList<>();
+        listData.add("apple");
+        listData.add("bat");
+        listData.add("cat");
+        listData.add("elephant");
+        listData.add("dog");
+        Map<Integer, List<String>> mapData =new TreeMap<>();
+        for(String names:listData){
+            Integer lengthOfNames = names.length();
+            List<String> lengthList = new ArrayList<>();
+            lengthList.add(names);
+            mapData.put(lengthOfNames,lengthList);
+        }
+    }
 
     public void studentData() {
         students.add(new Student("keerthana", 7));
