@@ -7,6 +7,41 @@ public class StudentMainClass {
 
 
 
+    public void constructSizeToStringListMap() {
+
+        List<String> mockData = new ArrayList<>();
+        mockData.add("apple");
+        mockData.add("orange");
+        mockData.add("car");
+        mockData.add("cat");
+        mockData.add("dog");
+
+
+
+        Map<Integer , List<String>> map = new HashMap<>();
+
+        for (String value : mockData){
+            Integer stringLength = value.length();
+
+            if (map.containsKey(stringLength)){
+                List<String> valueList =  map.get(stringLength);
+
+                valueList.add(value);
+            }else {
+                List<String> list = new ArrayList<>();
+
+                list.add(value);
+
+                map.put(stringLength , list);
+
+            }
+        }
+        System.out.println("map = " + map);
+
+
+
+
+    }
 
 
 
@@ -114,7 +149,9 @@ String maxScorer =" ";
     public static void main(String args[]){
         StudentMainClass object1 = new StudentMainClass();
 //        object1.studentData();
-        object1.addStudentAndFindMaximumMarks();
+//        object1.addStudentAndFindMaximumMarks();
+        object1.constructSizeToStringListMap();
+
     }
 
 }
