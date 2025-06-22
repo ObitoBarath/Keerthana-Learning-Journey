@@ -20,5 +20,12 @@ public class Ward {
         return this.pat;
     }
 
-
+    @Override
+    public String toString() {
+        return "Ward{" +
+                "wardNumber=" + wardNumber +
+                ", doc=" + doc +
+                ", pat=" + pat +
+                '}';
+    }
 }

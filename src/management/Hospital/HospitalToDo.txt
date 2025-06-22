@@ -1,0 +1,8 @@
+1. Fetch patient details, which includes: all three objects
+2. Mapping the patientName with Ward using Map, By adding values in addPatient method.
+3. Whenever the add Patient method is called, patient name and ward object should be added in map --M
+4. if user clicks the category to fetch patient details means,
+5.should display all the patients name from the map. --M
+6.Gets the index value from the user
+7. get Patient in that index value,. + ward object. --M
+8. print ward object.

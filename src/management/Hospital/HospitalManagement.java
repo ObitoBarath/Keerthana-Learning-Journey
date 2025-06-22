@@ -1,15 +1,15 @@
 package management.Hospital;
 
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class HospitalManagement {
     static Integer doctorCount = 3;
     static Integer wardSize=3;
+    static Integer wardNumber=1;
     static List<Doctor> doctors=new ArrayList<>();
     List <Patient> patients = new ArrayList<>();
+    Map <String, Ward> mapForFetchingPatientData = new HashMap<>();
     public void init(){
         Doctor doctor1=new Doctor("name1", "A");
         doctors.add(doctor1);
@@ -18,6 +18,8 @@ public class HospitalManagement {
 
 
     }
+
+
     public void addPatient(Patient patient){
 //        System.out.println("patient = " + patient);
 
@@ -32,9 +34,10 @@ public class HospitalManagement {
             Doctor doc=doctors.get(i);
             if (doc.getRole().equals(role)){
                 if(wardSize!=0){
-                    Ward wardObj = new Ward(1, doc, patient );
+                    Ward wardObj = new Ward(wardNumber++, doc, patient );
                     wardSize--;
                     doctorIndex=i;
+                    addingDataInPatientFetchMap(name, wardObj);
                     break;
 //                    doctors.remove(doc);
                 }
@@ -74,6 +77,7 @@ public class HospitalManagement {
 //        Patient pat = new Patient()
 
     }
+
     public static void main(String[] args){
         HospitalManagement  manager= new HospitalManagement();
         manager.init();
@@ -84,7 +88,8 @@ public class HospitalManagement {
             System.out.println("1) add patient: ");
             System.out.println("2) getting doctor details: ");
             System.out.println("3) get patient list: ");
-            System.out.println("4) exit: ");
+            System.out.println("4) Fetch Patient Details: ");
+            System.out.println("5) exit: ");
             System.out.println("Enter a number: ");
             int number = sc.nextInt(); // only consume input
 
@@ -92,12 +97,24 @@ public class HospitalManagement {
                 case 1 : {
                     sc.nextLine(); //  updating the scanner that needs to consume new input
                     manager.patientDataFromUser(sc);
+                    break;
+                }
+                case 4: {
+
+                    List<String> returningValue =  manager.displayingDataForTheUser();
+                    System.out.println("Enter the option:");
+                    int n = sc.nextInt();
+                    Ward wardValue=manager.matchingIndexValueWithMap(n, returningValue);
+                    System.out.println(wardValue);
+                    break;
                 }
                 default:{
                     sc.close();
                     return;
                 }
+
             }
+
 
         }
 
@@ -108,4 +125,30 @@ public class HospitalManagement {
 //        System.out.println("doctors.size() = " + doctors.size());
 //        System.out.println("wardSize = " + wardSize);
     }
+    public void addingDataInPatientFetchMap(String patientName, Ward ward){
+//        String patientName = Patient.getName();
+        mapForFetchingPatientData.put(patientName, ward);
+
+    }
+
+    public List<String> displayingDataForTheUser(){
+        Set<String> gettingName = mapForFetchingPatientData.keySet();
+        List<String> setToList = new ArrayList<>();
+        int count =0;
+        for(String valuesFromSet : gettingName){
+            setToList.add(valuesFromSet);
+            System.out.println(++count+ valuesFromSet);
+        }
+        return setToList;
+    }
+    public  Ward matchingIndexValueWithMap(Integer n, List<String> setValue ){
+        String gettingName = setValue.get(n-1);
+        if(mapForFetchingPatientData.containsKey(gettingName)){
+            Ward ward = mapForFetchingPatientData.get(gettingName);
+            return ward;
+        }
+        return null;
+    }
 }
+
+
