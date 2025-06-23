@@ -6,3 +6,12 @@
 6.Gets the index value from the user
 7. get Patient in that index value,. + ward object. --M
 8. print ward object.
+
+
+Getting Doctor Details:
+1. Display all the doctors(from the list and from the map)
+2. Getting the index from user
+3. If the index value <= list size means, using index value, we can get the doctor's details
+4. If the index value greater than list size means, should do (index value - list size())
+5. Iterating the map using entry set, and getting all the doctor's name
+6. Now takes the doctor's details using that index value.

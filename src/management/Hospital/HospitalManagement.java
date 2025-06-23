@@ -1,6 +1,7 @@
 package management.Hospital;
 
 
+import javax.print.Doc;
 import java.util.*;
 
 public class HospitalManagement {
@@ -9,13 +10,16 @@ public class HospitalManagement {
     static Integer wardNumber=1;
     static List<Doctor> doctors=new ArrayList<>();
     List <Patient> patients = new ArrayList<>();
-    Map <String, Ward> mapForFetchingPatientData = new HashMap<>();
+   static Map <String, Ward> mapForFetchingPatientData = new HashMap<>();
     public void init(){
         Doctor doctor1=new Doctor("name1", "A");
         doctors.add(doctor1);
         doctors.add(new Doctor("name2", "B"));
-        doctors.add(new Doctor("name 3","C"));
-
+        doctors.add(new Doctor("name3","C"));
+//        for(Doctor doctornames:doctors){
+//            String names = doctornames.getName();
+//        }
+        //        String doctornames= doctor1.getName();
 
     }
 
@@ -99,6 +103,15 @@ public class HospitalManagement {
                     manager.patientDataFromUser(sc);
                     break;
                 }
+                case 2:{
+                    manager.listingAllAvailableDoctorsNames();
+                    manager.listingOccupiedDoctorNames();
+                    int n= sc.nextInt();
+
+                    Object methodOutput = manager.displayDoctor(n,mapForFetchingPatientData);
+                    System.out.println(methodOutput);
+                    break;
+                }
                 case 4: {
 
                     List<String> returningValue =  manager.displayingDataForTheUser();
@@ -148,6 +161,44 @@ public class HospitalManagement {
             return ward;
         }
         return null;
+    }
+    public void listingAllAvailableDoctorsNames(){
+        for(int i=0; i<doctors.size(); i++){
+            Doctor availableDoctorName =doctors.get(i) ;
+            System.out.println(i+1+")"+availableDoctorName.getName());
+        }
+    }
+    public void listingOccupiedDoctorNames(){
+         Collection<Ward> occupiedDoctornames=mapForFetchingPatientData.values();
+        Integer count = doctors.size();
+         for(Ward names: occupiedDoctornames){
+             Doctor doctor=names.getDoc();
+             System.out.println(++count +")"+ doctor.getName());
+         }
+    }
+    public Object displayDoctor(Integer n, Map<String,Ward> mapValues){
+
+        if(n<doctors.size()) {
+            Doctor availableDoctor = doctors.get(n-1);
+            System.out.println("is available now");
+           return availableDoctor;
+        }
+        else{
+            int count=0;
+            Collection<Ward> displayingOccupDocNames=mapValues.values();
+            for(Ward ocupDocNames: displayingOccupDocNames){
+                ++count;
+                if(n-doctors.size() == count){
+                    System.out.println("is on duty");
+                    return ocupDocNames;
+                }
+
+            }
+
+        }
+        System.out.println("Enter the valid number");
+        return null;
+
     }
 }
 
