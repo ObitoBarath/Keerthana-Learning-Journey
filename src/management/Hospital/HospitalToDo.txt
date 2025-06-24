@@ -15,3 +15,16 @@ Getting Doctor Details:
 4. If the index value greater than list size means, should do (index value - list size())
 5. Iterating the map using entry set, and getting all the doctor's name
 6. Now takes the doctor's details using that index value.
+
+
+
+Search Operations
+1. Patient name means, entire patient details
+2. Doctor name means, entire doctor details
+
+
+1. Declare a Map --> String,Object
+isPatient, isDoctor
+
+1. Delecaring a Map<String, Object>
+2. should return this map

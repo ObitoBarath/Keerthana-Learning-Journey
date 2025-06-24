@@ -93,7 +93,8 @@ public class HospitalManagement {
             System.out.println("2) getting doctor details: ");
             System.out.println("3) get patient list: ");
             System.out.println("4) Fetch Patient Details: ");
-            System.out.println("5) exit: ");
+            System.out.println("5) Search: ");
+            System.out.println("6) exit: ");
             System.out.println("Enter a number: ");
             int number = sc.nextInt(); // only consume input
 
@@ -119,6 +120,14 @@ public class HospitalManagement {
                     int n = sc.nextInt();
                     Ward wardValue=manager.matchingIndexValueWithMap(n, returningValue);
                     System.out.println(wardValue);
+                    break;
+                }
+                case 5:{
+                    System.out.println("Enter the name:");
+                    Scanner identityScanner = new Scanner(System.in);
+                    String anonymous = identityScanner.nextLine();
+                    Map<String, Object> identityvalues=manager.findingIdentity(anonymous);
+                    System.out.println("identityvalues = " + identityvalues);
                     break;
                 }
                 default:{
@@ -199,6 +208,60 @@ public class HospitalManagement {
         System.out.println("Enter the valid number");
         return null;
 
+    }
+    public Map<String, Object> findingIdentity(String anonymous){
+        System.out.println("The name is:"+anonymous);
+        Map<String, Object> patientDetails=isAnonymousNameInPatient(anonymous, mapForFetchingPatientData);
+        if(patientDetails!=null && !patientDetails.isEmpty()){
+            return patientDetails;
+        }
+        Map<String, Object> freeDoctor=isAnonymousinFreeDoctor(anonymous,doctors );
+        if(freeDoctor!=null && !freeDoctor.isEmpty()){
+            return freeDoctor;
+        }
+        Map<String, Object> occupiedDoctors=isAnonymousinOccupiedDoctor(anonymous, mapForFetchingPatientData);
+        if(occupiedDoctors!=null && !occupiedDoctors.isEmpty()){
+            return occupiedDoctors;
+        }
+
+        System.out.println("Invalid name");
+        return null;
+
+    }
+    public Map<String, Object> isAnonymousNameInPatient(String anonymous,Map<String, Ward> mapForFetchingPatientData){
+        Map<String, Object> searchOperationMap = new TreeMap<>();
+        if (mapForFetchingPatientData.containsKey(anonymous)){
+            searchOperationMap.put("isPatient ","true");
+            searchOperationMap.put("isDoctor ","false");
+            searchOperationMap.put("Patient Details",mapForFetchingPatientData.get(anonymous));
+            return searchOperationMap;
+        }return null;
+    }
+    public Map<String, Object> isAnonymousinFreeDoctor(String anonymous, List<Doctor> doctors){
+        Map<String, Object> searchOperationMap = new TreeMap<>();
+        for(Doctor doctor:doctors){
+            String doctornames = doctor.getName();
+            if(doctornames.equals(anonymous)){
+                searchOperationMap.put("isDoctor ","true");
+                searchOperationMap.put("isPatient ","false");
+                searchOperationMap.put("Free Doctor Details: ", doctor);
+                return searchOperationMap;
+            }
+        }return null;
+    }
+    public Map<String, Object> isAnonymousinOccupiedDoctor(String anonymous, Map<String, Ward> mapForFetchingPatientData){
+        Map<String, Object> searchOperationMap = new TreeMap<>();
+        Collection<Ward> occupiedDoctors = mapForFetchingPatientData.values();
+        for(Ward doctors: occupiedDoctors){
+            Doctor doctor = doctors.getDoc();
+            String doctorName=doctor.getName();
+            if(doctorName.equals(anonymous)){
+                searchOperationMap.put("isDoctor ","true");
+                searchOperationMap.put("isPatient ","false");
+                searchOperationMap.put("Available doctor details", doctors);
+                return searchOperationMap;
+            }
+        }return null;
     }
 }
 
