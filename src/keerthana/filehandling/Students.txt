@@ -1,0 +1,40 @@
+ID: 101
+Name: Itachi Uchiha
+Course: Computer Science
+
+ID: 102
+Name: Naruto Uzumaki
+Course: Data Science
+
+ID: 103
+Name: Sasuke Uchiha
+Course: Artificial Intelligence
+
+ID: 104
+Name: Sakura Haruno
+Course: Biomedical Engineering
+
+ID: 105
+Name: Kakashi Hatake
+Course: Cyber Security
+
+ID: 106
+Name: Shikamaru Nara
+Course: Mathematics
+
+ID: 107
+Name: Hinata Hyuga
+Course: Information Technology
+
+ID: 108
+Name: Gaara
+Course: Cloud Computing
+
+ID: 109
+Name: Rock Lee
+Course: Software Engineering
+
+ID: 110
+Name:
+Course:
+
