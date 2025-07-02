@@ -263,6 +263,26 @@ public class HospitalManagement {
             }
         }return null;
     }
+
+    public static String buildersAndBuffers(){
+
+        String str = "Hello";
+
+        String str1 = "Barath";
+        str = "Keerthana";
+
+        System.out.println("str = " + str);
+        System.out.println("str1 = " + str1);
+
+        StringBuilder stringBuilder = new StringBuilder(); // Synchronous
+        stringBuilder.append("Hello");
+        stringBuilder.append("Keerthana");
+
+        StringBuffer stringBuffer = new StringBuffer(); // Asynchronous
+        stringBuffer.append("management");
+
+        return null;
+    }
 }
 
 
