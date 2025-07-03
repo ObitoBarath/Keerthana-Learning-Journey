@@ -85,4 +85,9 @@ public class FileManager {
         System.out.println(studentsList);
 
     }
+
+//    public void test() throws Exception{
+//        throw new RuntimeException("Invalid Data");
+//        System.out.println("Hi");
+//    }
 }
