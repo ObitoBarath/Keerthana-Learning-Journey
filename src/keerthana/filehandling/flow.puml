@@ -1,0 +1,22 @@
+@startuml
+start
+
+:Show Main Menu;
+
+
+:Show Available Buses;
+:User selects a bus;
+if (Seats available?) then (Yes)
+  :Book ticket;
+  :Generate Ticket;
+  :Print Ticket;
+else (No)
+  :Show error: No seats available;
+endif
+
+repeat
+  :Return to main menu;
+repeat while (User wants to continue?)
+
+stop
+@enduml
