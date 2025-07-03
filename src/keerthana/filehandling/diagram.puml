@@ -1,0 +1,67 @@
+@startuml
+
+interface Reservable {
+  +checkAvailability(): boolean
+  +reserveSeat(): void
+  +releaseSeat(): void
+}
+
+interface Printable {
+  +printDetails(): void
+}
+
+abstract class Person {
+  -id: int
+  -name: String
+  -email: String
+  -phone: String
+  +getDetails(): void
+}
+
+class User {
+  +viewTickets(): void
+  +bookTicket(): void
+  +getDetails(): void
+}
+
+class Admin {
+  +addBus(): void
+  +removeBus(): void
+  +viewAllUsers(): void
+  +getDetails(): void
+}
+
+abstract class TicketBase {
+  -ticketId: int
+  -userId: int
+  -busId: int
+  -seatNo: int
+  +calculatePrice(): double
+  +printDetails(): void
+}
+
+class Ticket {
+  -price: double
+  +calculatePrice(): double
+  +printDetails(): void
+}
+
+class Bus {
+  -busId: int
+  -origin: String
+  -destination: String
+  -date: String
+  -totalSeats: int
+  -availableSeats: int
+  +checkAvailability(): boolean
+  +reserveSeat(): void
+  +releaseSeat(): void
+}
+
+User --|> Person
+Admin --|> Person
+Ticket --|> TicketBase
+Ticket ..|> Printable
+Bus ..|> Reservable
+
+@enduml
