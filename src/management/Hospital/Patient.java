@@ -1,17 +1,34 @@
 package management.Hospital;
 
+import java.io.*;
 import java.util.Objects;
 
-public class Patient {
-    private String name;
+public class Patient implements Externalizable {
+
+    private Long serialVersionUID = 1298347231984723L;
+
+    private transient String name;
     private String role;
     private String disease;
-    private int age;
+    private transient int age;
+    private volatile boolean isCured = false;
 
     public Patient(String name, String role, String disease) {
         this.name = name;
         this.role = role;
         this.disease = disease;
+
+
+        if (!isCured) {
+            System.out.println("not cured");
+
+
+            System.out.println("curing process");
+            isCured = true;
+
+        } else {
+            System.out.println("cured");
+        }
 
     }
     public Patient(String name, String role, String disease, int age){
@@ -67,5 +84,19 @@ public class Patient {
                 ", role='" + role + '\'' +
                 ", disease='" + disease + '\'' +
                 '}';
+    }
+
+    @Override
+    public void writeExternal(ObjectOutput out) throws IOException {
+                              if (!name.equals("Barath")){
+                                  out.writeObject(name);
+                              }
+
+    }
+
+    @Override
+    public void readExternal(ObjectInput in) throws IOException, ClassNotFoundException {
+
+
     }
 }
