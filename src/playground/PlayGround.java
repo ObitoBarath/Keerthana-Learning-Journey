@@ -156,4 +156,12 @@ static Map<Integer, String> palazzoMap = new HashMap<>();
 
     }
 
+    //using streams only
+
+    //List<String> words = Arrays.asList("java", "spring", "java", "microservices", "spring", "java"); --> find the number of occurences and group them , java - 3 , spring -2
+    //String input = "successes"; --> most repeated character
+    //List<String> words = Arrays.asList("level", "radar", "apple", "banana", "madamimadam"); --> longest Palindrome
+    // List<String> words = Arrays.asList("eat", "tea", "tan", "ate", "nat", "bat"); --> group anagrams into an List<List<String>>
+    
+
 }
