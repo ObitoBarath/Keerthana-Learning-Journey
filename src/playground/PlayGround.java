@@ -1,7 +1,9 @@
 package playground;
 import java.lang.reflect.MalformedParameterizedTypeException;
 import java.util.*;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
+import java.util.stream.Gatherer;
 
 public class PlayGround {
     //1. Count words starting with "A"
@@ -66,7 +68,39 @@ public class PlayGround {
     // 4.          Math
     public void Math(){
         List<List<Integer>> lists = List.of(List.of(1, 2, 3), List.of(4, 5), List.of(6, 7, 8, 9));
-
+        Integer sum = 0;
+        Integer values=lists.stream().map(innerList->innerList.stream().mapToInt(n->n*2).sum()).sorted(Comparator.reverseOrder()).limit(2).reduce((a,b)->(int) (a*b/4.5)).orElse(0);
+        System.out.printf("%.5f%n",(double)values);
+//        List<Integer> processedValues = new ArrayList<>();
+//
+//        for(List<Integer> list1:lists){
+////            System.out.println(list1);
+//            sum=0;
+//            for(Integer numbers:list1){
+//                Integer twoMultiples=numbers*2;
+//                sum = sum+twoMultiples;
+////                System.out.println("Sum:"+sum);
+//            }
+//
+//
+//            processedValues.add(sum);
+//            System.out.println(processedValues);
+//            int length=processedValues.size()-1;
+//            int length2 = length-1;
+//           for(Integer multipliedValues:processedValues){
+//               Integer int1=multipliedValues.get(length);
+//
+//           }
+//    }
+//        Collections.sort(processedValues);
+//        System.out.println(processedValues);
+//        Integer lastValue=processedValues.getLast();
+//        int length=processedValues.size()-1;
+//        int length2 = length-1;
+//        Integer lastBeforeValue=processedValues.get(length2);
+//        Integer multipliedValues=lastValue*lastBeforeValue;
+//        double dividedValues=multipliedValues/4.5;
+//        System.out.printf("%.5f", dividedValues);
     }
 /*
      Multiply each list value by 2 and add them
@@ -146,10 +180,11 @@ static Map<Integer, String> palazzoMap = new HashMap<>();
 //        object1.countOfWordsWtihA();
 //        Employee object2=new Employee();
         object1.listSortedByLength();
-        Map<String,List<String>> sortedOutput=object1.groupingEmployeeByDepartment(employees);
-        System.out.println(sortedOutput);
-        object1.mapData();
-        object1.mapOperations(palazzoMap);
+//        Map<String,List<String>> sortedOutput=object1.groupingEmployeeByDepartment(employees);
+//        System.out.println(sortedOutput);
+//        object1.mapData();
+//        object1.mapOperations(palazzoMap);
+        object1.Math();
 
 
 
