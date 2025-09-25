@@ -4,6 +4,7 @@ import java.util.*;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
 import java.util.stream.Gatherer;
+import java.util.stream.Stream;
 
 public class PlayGround {
     //1. Count words starting with "A"
@@ -44,11 +45,11 @@ public class PlayGround {
             );
      */
     static List<Employee> employees = Arrays.asList(
-            new Employee("Alice", "IT"),
-            new Employee("Bob", "HR"),
-            new Employee("Charlie", "IT"),
-            new Employee("David", "Finance"),
-            new Employee("Eva", "HR")
+            new Employee("Alice", "IT",10),
+            new Employee("Bob", "HR",20),
+            new Employee("Charlie", "IT",30),
+            new Employee("David", "Finance",40),
+            new Employee("Eva", "HR",50)
     );
     public Map<String,List<String>>  groupingEmployeeByDepartment(List<Employee> employees ){
         Map<String, List<String>> employeeeMap = new HashMap<>();
@@ -65,6 +66,30 @@ public class PlayGround {
             }
         }return employeeeMap;
     }
+    public Map<String,List<String>>  groupingEmployeeByDepartmentUsingStreams(List<Employee> employees ){
+        Map<String,List<String>> grouppingMap= employees.stream().collect(Collectors.groupingBy(Employee::getDepartment,Collectors.mapping(Employee::getName,Collectors.toList())));
+        return grouppingMap;
+    }
+    public LinkedHashMap<String,Integer> salaryGrouping(List<Employee> employees){
+        Map<String,Integer> streamMap=employees.stream().collect(Collectors.groupingBy(Employee::getDepartment,Collectors.mapping(Employee::getSalary,Collectors.summingInt(Integer::intValue))));
+        LinkedHashMap<String,Integer> sortedMap=streamMap.entrySet().stream().sorted(Map.Entry.comparingByValue()).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue,(key,value)->value , LinkedHashMap::new));
+        return sortedMap;
+    }
+    public void addFunction(){
+
+        Integer num1 = 127 ;
+
+        Integer num2 = 127;
+
+        boolean b = num1 == num2;
+        System.out.println(b);
+
+//        Integer num1 = 127 ;
+//        Integer num2 = 127;
+
+//        boolean b = num1 == num2
+    }
+
     // 4.          Math
     public void Math(){
         List<List<Integer>> lists = List.of(List.of(1, 2, 3), List.of(4, 5), List.of(6, 7, 8, 9));
@@ -179,14 +204,14 @@ static Map<Integer, String> palazzoMap = new HashMap<>();
         PlayGround object1 = new PlayGround();
 //        object1.countOfWordsWtihA();
 //        Employee object2=new Employee();
-        object1.listSortedByLength();
+//        object1.listSortedByLength();
 //        Map<String,List<String>> sortedOutput=object1.groupingEmployeeByDepartment(employees);
 //        System.out.println(sortedOutput);
 //        object1.mapData();
 //        object1.mapOperations(palazzoMap);
-        object1.Math();
-
-
+//        object1.Math();
+//        System.out.println("The added and sorted map is: "+object1.salaryGrouping(employees));
+            object1.addFunction();
 
 
     }
