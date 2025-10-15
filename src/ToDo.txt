@@ -1,6 +1,14 @@
-1. Thread
+1. Thread -->
 2. Enum
 3. Generics, Wild Cards
-4. Java 8
+4. Java 8  -->Reflections  ,  CountdownLatch , Callable , Future ,  comparator , comparable
 5. API Structures
-6. Reflections
+6. Reflections  --> Spring Boot, JPA, Hibernate
+7. Annotations
+
+
+/*
+    Negative → if o1 < o2         -1
+    Zero → if o1 == o2             0
+    Positive → if o1 > o2          1
+*/
