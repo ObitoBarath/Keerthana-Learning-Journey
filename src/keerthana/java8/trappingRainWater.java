@@ -1,5 +1,6 @@
 package keerthana.java8;
 
+import javax.swing.tree.TreeNode;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -79,7 +80,11 @@ public class trappingRainWater {
                 }
             }
             System.out.println("The maximum wealth of a person is: "+maximum);
-
-
         }
+
+        //Zig Zag level order
+        public void jalebiProblem(){
+//            TreeNode root={3,9,20,null,null,15,7};
+        }
+        
 }
